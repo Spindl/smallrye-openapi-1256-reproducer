@@ -3,7 +3,6 @@ package com.nts.smallryeopenapi.reproducer.api;
 import com.nts.smallryeopenapi.reproducer.api.filter.BeanParamBean;
 import com.nts.smallryeopenapi.reproducer.api.filter.FilterBean;
 import com.nts.smallryeopenapi.reproducer.api.json.DataJson;
-import com.nts.smallryeopenapi.reproducer.api.json.Page;
 import jakarta.ws.rs.BeanParam;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -17,6 +16,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+
+import java.util.List;
 
 @Path("reproducer/reproducers")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -33,5 +34,5 @@ public interface RestInterface extends GenericBaseInterface<DataJson, FilterBean
 
     @GET
     @Override
-    Page<DataJson> list(@BeanParam BeanParamBean params, @BeanParam FilterBean filter);
+    List<DataJson> list(@BeanParam BeanParamBean params, @BeanParam FilterBean filter);
 }
